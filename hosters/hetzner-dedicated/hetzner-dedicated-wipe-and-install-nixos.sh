@@ -165,7 +165,7 @@ set +u +x # sourcing this may refer to unset variables that we have no control o
 set -u -x
 
 # FIXME Keep in sync with `system.stateVersion` set below!
-nix-channel --add https://nixos.org/channels/nixos-20.03 nixpkgs
+nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs
 nix-channel --update
 
 # Getting NixOS installation tools
@@ -273,7 +273,10 @@ cat > /mnt/etc/nixos/configuration.nix <<EOF
 
   users.users.root.openssh.authorizedKeys.keys = [
     # FIXME Replace this by your SSH pubkey!
-    "ssh-rsa AAAAAAAAAAA..."
+    # Quinn
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHqdyGpQhoKPE0WEezmFIT3DDpY/8Bdl+y6miEFWb2na"
+    # Marijan
+    "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKJMTVrY0qbJfu2g1TocLxRrYc/AjlnUuR35Y4biaLThAAAABHNzaDo="
   ];
 
   services.openssh.enable = true;
@@ -283,7 +286,7 @@ cat > /mnt/etc/nixos/configuration.nix <<EOF
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
 EOF
