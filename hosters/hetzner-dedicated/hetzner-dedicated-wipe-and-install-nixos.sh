@@ -254,7 +254,7 @@ cat > /mnt/etc/nixos/configuration.nix <<EOF
       # For example, a netmask of 255.255.255.0 means prefix length 24
       # (24 leading 1s), and 255.255.255.192 means prefix length 26
       # (26 leading 1s).
-      prefixLength = 27;
+      prefixLength = 26;
     }
   ];
   networking.interfaces."$NIXOS_INTERFACE".ipv6.addresses = [
